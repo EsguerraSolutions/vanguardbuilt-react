@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
 function Projects() {
+  const [scroll, setScroll] = useState(false);
+  const divRef = React.useRef();
+
+  const handleScroll = (e) => {
+    const scrolledFromTop = divRef.current.scrollTop;
+    console.log(scrolledFromTop);
+    setScroll(scrolledFromTop > 50);
+  };
   return (
     <section id="projects" className="margin-top">
       <div className="project-header scaledIn active">
